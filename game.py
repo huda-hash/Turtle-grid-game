@@ -168,4 +168,21 @@ def move_right():
 
 screen.listen()
 screen.onkey(move_right, "d")
+
+# restart feature
+def restart():
+    global moves, game_over, x_pos, y_pos
+
+    x_pos = random.choice(positions)
+    y_pos = random.choice(positions) 
+    target.goto(x_pos, y_pos)
+    target.hideturtle()
+
+    moves = 0
+    game_over = False
+
+    player.goto(-160, -160)
+    update_moves()
+    writer.clear()
+screen.onkey(restart, "r")
 turtle.done()
